@@ -1,61 +1,50 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const WelcomeApp());
+  runApp(const MyApp());
 }
 
-class WelcomeApp extends StatelessWidget {
-  const WelcomeApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const WelcomeScreen(),
+      home: const ButtonPressExample(),
     );
   }
 }
 
-class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({super.key});
+class ButtonPressExample extends StatefulWidget {
+  const ButtonPressExample({super.key});
 
   @override
-  _WelcomeScreenState createState() => _WelcomeScreenState();
+  State<ButtonPressExample> createState() => _ButtonPressExampleState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
-  String message = 'Hi, Welcome!';
+class _ButtonPressExampleState extends State<ButtonPressExample> {
+  String displayText = "Press the button";
 
-  void updateMessage() {
+  void _changeText() {
     setState(() {
-      message = 'Button Pressed!';
+      displayText = "Button Pressed";
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text('Button App')),
-        backgroundColor: Colors.green,
-      ),
+      appBar: AppBar(title: const Text("Stateful Widget Example")),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              message,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.deepOrangeAccent,
-                fontFamily: 'DMSans',
-              ),
-            ),
+            Text(displayText, style: const TextStyle(fontSize: 24)),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: updateMessage,
-              child: const Text('Tap Me'),
+              onPressed: _changeText,
+              child: const Text("Press Me"),
             ),
           ],
         ),

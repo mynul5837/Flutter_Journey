@@ -12,18 +12,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: const Center(child: Text('Hello World AppBar')),
-          backgroundColor: Colors.yellow,
-        ),
-        body: const Center(
+        backgroundColor: Colors.white,
+        body: Center(
           child: Text(
             'Hello World!',
             style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.redAccent,
-              fontFamily: 'DMSans',
+              fontFamily: 'Lobster',
+              fontSize: 32,
+              color: Colors.deepPurple,
             ),
           ),
         ),

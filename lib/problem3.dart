@@ -1,52 +1,32 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const ListApp());
+  runApp(const MyApp());
 }
 
-class ListApp extends StatelessWidget {
-  const ListApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const ItemListScreen(),
+      home: const ListViewExample(),
     );
   }
 }
 
-class ItemListScreen extends StatelessWidget {
-  const ItemListScreen({super.key});
+class ListViewExample extends StatelessWidget {
+  const ListViewExample({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text('List AppBar')),
-        backgroundColor: Colors.greenAccent,
-      ),
+      appBar: AppBar(title: const Text("ListView Example")),
       body: ListView.builder(
-        itemCount: 15,
+        itemCount: 20, // Display 20 items
         itemBuilder: (context, index) {
-          return Container(
-            margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            decoration: BoxDecoration(
-              color: Colors.primaries[index % Colors.primaries.length],
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: ListTile(
-              title: Text(
-                'Item ${index + 1}',
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'DMSans',
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          );
+          return ListTile(title: Text("Item ${index + 1}"));
         },
       ),
     );

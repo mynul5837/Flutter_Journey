@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const NavigationApp());
+  runApp(const MyApp());
 }
 
-class NavigationApp extends StatelessWidget {
-  const NavigationApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,19 +22,16 @@ class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text('First Screen')),
-        backgroundColor: Colors.blue,
-      ),
+      appBar: AppBar(title: const Text('First Screen')),
       body: Center(
         child: ElevatedButton(
+          child: const Text('Go to Second Screen'),
           onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const SecondScreen()),
             );
           },
-          child: const Text('Go to Second Screen'),
         ),
       ),
     );
@@ -47,16 +44,13 @@ class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text('Second Screen')),
-        backgroundColor: Colors.green,
-      ),
+      appBar: AppBar(title: const Text('Second Screen')),
       body: Center(
         child: ElevatedButton(
+          child: const Text('Go Back'),
           onPressed: () {
             Navigator.pop(context);
           },
-          child: const Text('Back to First Screen'),
         ),
       ),
     );
